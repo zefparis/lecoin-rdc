@@ -226,8 +226,27 @@ const server = http.createServer((req, res) => {
             text-align: center;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            padding: 20px;
+            padding: 30px 20px;
             border-top: 1px solid #333;
+            background-color: #0f172a;
+          }
+          .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          .company-info {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            line-height: 1.6;
+          }
+          footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+          }
+          footer a:hover {
+            text-decoration: underline;
           }
           
           /* Media queries pour la responsivité */
@@ -406,7 +425,14 @@ const server = http.createServer((req, res) => {
         </main>
         
         <footer>
-          <p> 2025 LeCoin RDC - La plateforme de services essentiels pour tous les Congolais</p>
+          <div class="footer-content">
+            <p>&copy; 2025 LeCoin RDC - La plateforme de services essentiels pour tous les Congolais</p>
+            <div class="company-info">
+              <p>Beneficiary: Congo Gaming SARL</p>
+              <p>RCCM : CD/KIN/RCCM/16-B-09723 | ASVA-ARPTC n&deg;0573/008/Mars/2023</p>
+              <p>&copy; 2023 ImmoExpress. All rights reserved. <a href="#">Terms and Conditions</a></p>
+            </div>
+          </div>
         </footer>
       </body>
       </html>

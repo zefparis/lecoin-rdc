@@ -4,6 +4,263 @@ const http = require('http');
 const PORT = process.env.PORT || 3002;
 
 const server = http.createServer((req, res) => {
+  // Servir la page des conditions générales
+  if (req.url === '/terms-and-conditions') {
+    res.setHeader('Content-Type', 'text/html');
+    res.statusCode = 200;
+    res.end(`
+      <!DOCTYPE html>
+      <html lang="fr">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conditions Générales d'Utilisation - LeCoin RDC</title>
+        <style>
+          :root {
+            --background: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --border-color: #334155;
+          }
+          body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background);
+            margin: 0;
+            padding: 0;
+          }
+          .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+          }
+          header {
+            margin-bottom: 40px;
+            text-align: center;
+          }
+          h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+          }
+          h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+          }
+          h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            color: var(--text-primary);
+          }
+          p, ul, ol {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+          }
+          ul, ol {
+            padding-left: 20px;
+          }
+          li {
+            margin-bottom: 10px;
+          }
+          a {
+            color: var(--accent-blue);
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 20px;
+            background-color: var(--accent-blue);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+          }
+          .back-link:hover {
+            background-color: #2563eb;
+            text-decoration: none;
+          }
+          .last-updated {
+            font-style: italic;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+          }
+          footer {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <header>
+            <h1>Conditions Générales d'Utilisation</h1>
+            <p>LeCoin RDC - Plateforme de services intégrés pour la République Démocratique du Congo</p>
+          </header>
+
+          <section>
+            <h2>1. Dispositions Générales</h2>
+            <p>Les présentes Conditions Générales d'Utilisation (ci-après dénommées "CGU") régissent l'utilisation de la plateforme LeCoin RDC (ci-après dénommée "la Plateforme"), exploitée par Congo Gaming SARL, société de droit congolais, immatriculée au Registre du Commerce et du Crédit Mobilier sous le numéro CD/KIN/RCCM/16-B-09723, titulaire de l'autorisation ASVA-ARPTC n°0573/008/Mars/2023.</p>
+            
+            <p>En accédant à la Plateforme et en utilisant nos services, vous acceptez sans réserve d'être lié par les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre Plateforme.</p>
+            
+            <h3>1.1 Définitions</h3>
+            <ul>
+              <li><strong>"Utilisateur"</strong> : toute personne qui accède à la Plateforme et/ou utilise les services proposés.</li>
+              <li><strong>"Compte"</strong> : espace personnel créé par l'Utilisateur sur la Plateforme.</li>
+              <li><strong>"Services"</strong> : ensemble des prestations proposées par LeCoin RDC via sa Plateforme, notamment Immo-Express, Pharma-Express, Wewa-Express, Pasteur-Express, Librairie-Express et Studio-Express.</li>
+            </ul>
+            
+            <h3>1.2 Objet</h3>
+            <p>Les présentes CGU ont pour objet de définir les conditions d'accès et d'utilisation des Services proposés sur la Plateforme, ainsi que de définir les droits et obligations des parties dans ce cadre.</p>
+          </section>
+
+          <section>
+            <h2>2. Accès à la Plateforme</h2>
+            <p>La Plateforme est accessible gratuitement à tout Utilisateur disposant d'un accès à Internet. Tous les coûts afférents à l'accès à la Plateforme, que ce soient les frais matériels, logiciels ou d'accès à Internet sont exclusivement à la charge de l'Utilisateur.</p>
+            
+            <p>L'accès à certains Services peut nécessiter la création préalable d'un Compte. L'Utilisateur s'engage à fournir des informations exactes lors de son inscription et à les mettre à jour régulièrement.</p>
+            
+            <h3>2.1 Création de compte</h3>
+            <p>Pour créer un compte, l'Utilisateur doit :</p>
+            <ul>
+              <li>Remplir le formulaire d'inscription en fournissant des informations exactes et complètes</li>
+              <li>Choisir un mot de passe confidentiel</li>
+              <li>Accepter les présentes CGU</li>
+            </ul>
+            
+            <p>Conformément à la loi n° 020/2020 du 28 septembre 2020 relative aux télécommunications et aux technologies de l'information et de la communication en République Démocratique du Congo, l'Utilisateur s'engage à ne pas usurper l'identité d'un tiers ni à utiliser une fausse identité.</p>
+          </section>
+
+          <section>
+            <h2>3. Services Proposés</h2>
+            <p>LeCoin RDC propose divers services intégrés destinés à faciliter la vie quotidienne des Congolais :</p>
+            
+            <h3>3.1 Immo-Express</h3>
+            <p>Service de mise en relation pour la location et la vente de biens immobiliers en RDC.</p>
+            
+            <h3>3.2 Pharma-Express</h3>
+            <p>Service de livraison de produits pharmaceutiques et de mise en relation avec des professionnels de santé.</p>
+            
+            <h3>3.3 Wewa-Express</h3>
+            <p>Service de transport et de livraison à domicile.</p>
+            
+            <h3>3.4 Pasteur-Express</h3>
+            <p>Service d'accompagnement spirituel et pastoral pour la communauté chrétienne congolaise.</p>
+            
+            <h3>3.5 Librairie-Express</h3>
+            <p>Service de vente et de livraison de livres et de littérature spécialisée.</p>
+            
+            <h3>3.6 Studio-Express</h3>
+            <p>Service d'enregistrement audio et de production musicale (en construction).</p>
+            
+            <p>Chaque service est soumis à des conditions spécifiques qui complètent les présentes CGU.</p>
+          </section>
+
+          <section>
+            <h2>4. Obligations de l'Utilisateur</h2>
+            <p>En utilisant la Plateforme, l'Utilisateur s'engage à :</p>
+            <ul>
+              <li>Respecter les lois et règlements en vigueur en République Démocratique du Congo</li>
+              <li>Ne pas porter atteinte aux droits des tiers</li>
+              <li>Ne pas utiliser la Plateforme à des fins illicites, frauduleuses ou préjudiciables</li>
+              <li>Protéger la confidentialité de ses identifiants de connexion</li>
+              <li>Informer immédiatement LeCoin RDC de toute utilisation non autorisée de son compte</li>
+            </ul>
+            
+            <p>Conformément à la loi n° 18/017 du 24 juillet 2018 fixant les règles relatives à la télécommunication en RDC, l'Utilisateur s'engage à ne pas diffuser de contenus illégaux ou préjudiciables via la Plateforme.</p>
+          </section>
+
+          <section>
+            <h2>5. Propriété Intellectuelle</h2>
+            <p>Tous les éléments de la Plateforme, y compris mais sans s'y limiter, les textes, images, logos, marques, sons, logiciels, icônes, mise en page, base de données, sont protégés par les droits de propriété intellectuelle et sont la propriété exclusive de Congo Gaming SARL ou de ses partenaires.</p>
+            
+            <p>Conformément à la loi n° 82-001 du 7 janvier 1982 sur la propriété industrielle et à l'Ordonnance-Loi n° 86-033 du 5 avril 1986 portant protection des droits d'auteurs et droits voisins en RDC, toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments de la Plateforme sans l'autorisation préalable écrite de Congo Gaming SARL est strictement interdite et constitue une contrefaçon passible de sanctions pénales.</p>
+          </section>
+
+          <section>
+            <h2>6. Données Personnelles</h2>
+            <p>LeCoin RDC collecte et traite les données personnelles des Utilisateurs dans le respect de la vie privée conformément à la loi n° 020/2020 du 28 septembre 2020 relative aux télécommunications et aux technologies de l'information et de la communication en RDC.</p>
+            
+            <p>Les informations recueillies font l'objet d'un traitement informatique destiné à :</p>
+            <ul>
+              <li>Gérer les comptes des Utilisateurs</li>
+              <li>Fournir et améliorer les Services</li>
+              <li>Personnaliser l'expérience utilisateur</li>
+              <li>Communiquer avec les Utilisateurs</li>
+            </ul>
+            
+            <p>L'Utilisateur dispose d'un droit d'accès, de rectification et de suppression de ses données personnelles. Pour exercer ces droits, l'Utilisateur peut contacter LeCoin RDC à l'adresse suivante : privacy@lecoin-rdc.com.</p>
+          </section>
+
+          <section>
+            <h2>7. Responsabilité</h2>
+            <p>LeCoin RDC s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations diffusées sur la Plateforme, dont elle se réserve le droit de corriger le contenu à tout moment.</p>
+            
+            <p>LeCoin RDC ne peut toutefois garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur la Plateforme. En conséquence, LeCoin RDC décline toute responsabilité :</p>
+            <ul>
+              <li>Pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur la Plateforme</li>
+              <li>Pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations mises à la disposition sur la Plateforme</li>
+              <li>Pour tous dommages directs ou indirects, quelles qu'en soient les causes, origines, natures ou conséquences, provenant de l'impossibilité d'accéder à la Plateforme</li>
+            </ul>
+            
+            <p>Conformément à l'article 258 du Code Civil Congolais Livre III, la responsabilité de LeCoin RDC ne saurait être engagée en cas de force majeure ou de faits indépendants de sa volonté.</p>
+          </section>
+
+          <section>
+            <h2>8. Liens Hypertextes</h2>
+            <p>La Plateforme peut contenir des liens hypertextes vers d'autres sites internet. LeCoin RDC n'exerce aucun contrôle sur ces sites et n'assume aucune responsabilité quant à leur contenu.</p>
+          </section>
+
+          <section>
+            <h2>9. Modification des CGU</h2>
+            <p>LeCoin RDC se réserve le droit de modifier les présentes CGU à tout moment. Les Utilisateurs seront informés de toute modification par la publication des CGU mises à jour sur la Plateforme. Les modifications entrent en vigueur dès leur publication.</p>
+            
+            <p>En continuant à utiliser la Plateforme après la publication des CGU modifiées, l'Utilisateur accepte ces modifications.</p>
+          </section>
+
+          <section>
+            <h2>10. Droit Applicable et Juridiction Compétente</h2>
+            <p>Les présentes CGU sont régies par le droit de la République Démocratique du Congo.</p>
+            
+            <p>En cas de litige relatif à l'interprétation ou à l'exécution des présentes CGU, les parties s'efforceront de trouver une solution amiable. À défaut d'accord amiable, le litige sera soumis aux tribunaux compétents de Kinshasa, conformément aux dispositions du Code de Procédure Civile Congolais.</p>
+          </section>
+
+          <section>
+            <h2>11. Dispositions Diverses</h2>
+            <p>Si une ou plusieurs stipulations des présentes CGU sont tenues pour non valides ou déclarées comme telles en application d'une loi, d'un règlement ou à la suite d'une décision définitive d'une juridiction compétente, les autres stipulations garderont toute leur force et leur portée.</p>
+            
+            <p>Le fait pour LeCoin RDC de ne pas se prévaloir à un moment donné d'une des dispositions des présentes CGU ne peut être interprété comme valant renonciation à s'en prévaloir ultérieurement.</p>
+          </section>
+
+          <p class="last-updated">Dernière mise à jour : 1 juin 2025</p>
+          
+          <a href="/" class="back-link">Retour à l'accueil</a>
+        </div>
+
+        <footer>
+          <p>&copy; 2025 LeCoin RDC - Tous droits réservés</p>
+          <p>Congo Gaming SARL - RCCM : CD/KIN/RCCM/16-B-09723 | ASVA-ARPTC n&deg;0573/008/Mars/2023</p>
+        </footer>
+      </body>
+      </html>
+    `);
+    return;
+  }
+  
   // Servir une page HTML à la racine
   if (req.url === '/' || req.url === '') {
     res.setHeader('Content-Type', 'text/html');
@@ -430,7 +687,7 @@ const server = http.createServer((req, res) => {
             <div class="company-info">
               <p>Beneficiary: Congo Gaming SARL</p>
               <p>RCCM : CD/KIN/RCCM/16-B-09723 | ASVA-ARPTC n&deg;0573/008/Mars/2023</p>
-              <p>&copy; 2023 ImmoExpress. All rights reserved. <a href="#">Terms and Conditions</a></p>
+              <p>&copy; 2023 ImmoExpress. All rights reserved. <a href="/terms-and-conditions">Terms and Conditions</a></p>
             </div>
           </div>
         </footer>

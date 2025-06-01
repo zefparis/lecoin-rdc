@@ -140,7 +140,7 @@ const server = http.createServer((req, res) => {
           .immo-img { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .pharma-img { background-image: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .wewa-img { background-image: url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
-          .pasteur-img { background-image: url('https://images.unsplash.com/photo-1503147070464-8f5bcd34f996?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de religieuse chrétienne */ }
+          .pasteur-img { background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de croix chrétienne */ }
           .service-header {
             font-weight: bold;
             font-size: 1.4rem;
@@ -332,11 +332,11 @@ const server = http.createServer((req, res) => {
               <div class="service-card">
                 <div class="service-image pasteur-img"></div>
                 <div class="service-header pasteur">Pasteur-Express</div>
-                <p class="service-description">Services de santé accessibles pour tous les Congolais.</p>
+                <p class="service-description">Accompagnement spirituel et pastoral pour la communauté chrétienne congolaise.</p>
                 <div class="service-features">
-                  <div class="service-feature">Consultations médicales à distance</div>
-                  <div class="service-feature">Visites médicales à domicile</div>
-                  <div class="service-feature">Suivi médical personnalisé</div>
+                  <div class="service-feature">Conseils et accompagnement pastoral à distance</div>
+                  <div class="service-feature">Prières personnalisées et soutien moral</div>
+                  <div class="service-feature">Communauté chrétienne connectée et échanges en temps réel</div>
                 </div>
                 <div class="service-footer">
                   <a href="https://pasteur-express.replit.app/" target="_blank" class="button" style="background-color: #2563eb;">Visiter Pasteur-Express</a>
@@ -442,9 +442,9 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({
       service: 'Pasteur-Express',
       services: [
-        { id: 1, name: 'Consultation à domicile', price: 50, duration: '60 min' },
-        { id: 2, name: 'Téléconsultation', price: 30, duration: '30 min' },
-        { id: 3, name: 'Soins infirmiers', price: 40, duration: '45 min' }
+        { id: 1, name: 'Conseils et accompagnement pastoral à distance', type: 'Spirituel', disponible: true },
+        { id: 2, name: 'Prières personnalisées et soutien moral', type: 'Soutien', disponible: true },
+        { id: 3, name: 'Communauté chrétienne connectée', type: 'Échange', disponible: true }
       ]
     }));
   } else {

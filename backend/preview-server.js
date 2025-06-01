@@ -196,14 +196,7 @@ const server = http.createServer((req, res) => {
           .librairie::before { background-color: var(--accent-teal); }
           .studio { color: var(--accent-pink); }
           .studio::before { background-color: var(--accent-pink); }
-          .endpoint {
-            background-color: #2d2d2d;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-family: monospace;
-            font-size: 0.9rem;
-          }
+          /* Les styles de l'endpoint ont été supprimés car la section API a été retirée */
           .button {
             display: inline-block;
             margin-top: 20px;
@@ -409,20 +402,7 @@ const server = http.createServer((req, res) => {
             </p>
           </section>
           
-          <section class="api-section">
-            <h2>API pour développeurs</h2>
-            <p>Intégrez nos services dans vos applications grâce à nos API:</p>
-            
-            <div class="endpoint">GET /api - Point d'entrée principal</div>
-            <div class="endpoint">GET /api/immo-express - Service immobilier</div>
-            <div class="endpoint">GET /api/pharma-express - Service pharmaceutique</div>
-            <div class="endpoint">GET /api/wewa-express - Service de transport</div>
-            <div class="endpoint">GET /api/pasteur-express - Service pastoral chrétien</div>
-            <div class="endpoint">GET /api/librairie-express - Service de librairie ésotérique</div>
-            <div class="endpoint">GET /api/studio-express - Service d'enregistrement (en construction)</div>
-            
-            <a href="/api" class="button">Explorer les API</a>
-          </section>
+          <!-- La section API a été retirée de la page d'accueil -->
         </main>
         
         <footer>

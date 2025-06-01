@@ -1,0 +1,14 @@
+{
+  "name": "lecoin-rdc",
+  "version": "1.0.0",
+  "description": "Plateforme centralisée LeCoin RDC",
+  "main": "backend/simple-auth-server.js",
+  "scripts": {
+    "start": "cd backend && node simple-auth-server.js",
+    "install": "cd backend && npm install"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "MIT"
+}

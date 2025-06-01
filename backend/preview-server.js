@@ -27,6 +27,8 @@ const server = http.createServer((req, res) => {
             --accent-red: #ef4444;
             --accent-orange: #f59e0b;
             --accent-purple: #8b5cf6;
+            --accent-teal: #14b8a6;
+            --accent-pink: #ec4899;
             --border-radius: 12px;
           }
           body {
@@ -141,6 +143,21 @@ const server = http.createServer((req, res) => {
           .pharma-img { background-image: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .wewa-img { background-image: url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .pasteur-img { background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de croix chrétienne */ }
+          .librairie-img { background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de livres ésothériques */ }
+          .studio-img { background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de studio d'enregistrement */ }
+          .construction-banner {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background-color: #f59e0b;
+            color: #000;
+            padding: 5px 40px;
+            font-weight: bold;
+            transform: rotate(45deg);
+            z-index: 10;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          }
           .service-header {
             font-weight: bold;
             font-size: 1.4rem;
@@ -175,6 +192,10 @@ const server = http.createServer((req, res) => {
           .wewa::before { background-color: var(--accent-orange); }
           .pasteur { color: var(--accent-blue); }
           .pasteur::before { background-color: var(--accent-blue); }
+          .librairie { color: var(--accent-teal); }
+          .librairie::before { background-color: var(--accent-teal); }
+          .studio { color: var(--accent-pink); }
+          .studio::before { background-color: var(--accent-pink); }
           .endpoint {
             background-color: #2d2d2d;
             padding: 15px;
@@ -342,6 +363,35 @@ const server = http.createServer((req, res) => {
                   <a href="https://pasteur-express.replit.app/" target="_blank" class="button" style="background-color: #2563eb;">Visiter Pasteur-Express</a>
                 </div>
               </div>
+
+              <div class="service-card">
+                <div class="service-image librairie-img"></div>
+                <div class="service-header librairie">Librairie-Express</div>
+                <p class="service-description">Livres ésotériques et littérature spécialisée pour tous les Congolais passionnés.</p>
+                <div class="service-features">
+                  <div class="service-feature">Large collection de livres ésotériques et spirituels</div>
+                  <div class="service-feature">Livraison dans toutes les grandes villes de la RDC</div>
+                  <div class="service-feature">Conseils personnalisés par des experts en littérature</div>
+                </div>
+                <div class="service-footer">
+                  <a href="https://librairiearcanes.replit.app/" target="_blank" class="button" style="background-color: #14b8a6;">Visiter Librairie-Express</a>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-image studio-img"></div>
+                <div class="construction-banner">En construction</div>
+                <div class="service-header studio">Studio-Express</div>
+                <p class="service-description">Services d'enregistrement audio et production musicale professionnelle.</p>
+                <div class="service-features">
+                  <div class="service-feature">Studios d'enregistrement de haute qualité</div>
+                  <div class="service-feature">Production et mixage par des professionnels</div>
+                  <div class="service-feature">Distribution musicale sur les plateformes digitales</div>
+                </div>
+                <div class="service-footer">
+                  <a href="https://mundo-cultura.replit.app/" target="_blank" class="button" style="background-color: #ec4899;">Visiter Studio-Express</a>
+                </div>
+              </div>
             </div>
           </section>
           
@@ -367,7 +417,9 @@ const server = http.createServer((req, res) => {
             <div class="endpoint">GET /api/immo-express - Service immobilier</div>
             <div class="endpoint">GET /api/pharma-express - Service pharmaceutique</div>
             <div class="endpoint">GET /api/wewa-express - Service de transport</div>
-            <div class="endpoint">GET /api/pasteur-express - Service de santé</div>
+            <div class="endpoint">GET /api/pasteur-express - Service pastoral chrétien</div>
+            <div class="endpoint">GET /api/librairie-express - Service de librairie ésotérique</div>
+            <div class="endpoint">GET /api/studio-express - Service d'enregistrement (en construction)</div>
             
             <a href="/api" class="button">Explorer les API</a>
           </section>
@@ -405,6 +457,8 @@ const server = http.createServer((req, res) => {
         { name: 'Pharma-Express', status: 'disponible', endpoint: '/api/pharma-express' },
         { name: 'Wewa-Express', status: 'disponible', endpoint: '/api/wewa-express' },
         { name: 'Pasteur-Express', status: 'disponible', endpoint: '/api/pasteur-express' },
+        { name: 'Librairie-Express', status: 'disponible', endpoint: '/api/librairie-express' },
+        { name: 'Studio-Express', status: 'en construction', endpoint: '/api/studio-express' },
       ]
     }));
   } else if (req.url.startsWith('/api/immo-express')) {
@@ -445,6 +499,27 @@ const server = http.createServer((req, res) => {
         { id: 1, name: 'Conseils et accompagnement pastoral à distance', type: 'Spirituel', disponible: true },
         { id: 2, name: 'Prières personnalisées et soutien moral', type: 'Soutien', disponible: true },
         { id: 3, name: 'Communauté chrétienne connectée', type: 'Échange', disponible: true }
+      ]
+    }));
+  } else if (req.url.startsWith('/api/librairie-express')) {
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      service: 'Librairie-Express',
+      books: [
+        { id: 1, title: 'Les Arcanes Majeurs du Tarot', price: 25, category: 'Ésotérisme', available: true },
+        { id: 2, title: 'Astrologie et Spiritualité', price: 30, category: 'Astrologie', available: true },
+        { id: 3, title: 'Méditation et Pratiques Spirituelles', price: 22, category: 'Spiritualité', available: true }
+      ]
+    }));
+  } else if (req.url.startsWith('/api/studio-express')) {
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      service: 'Studio-Express',
+      status: 'en construction',
+      services: [
+        { id: 1, name: 'Enregistrement vocal', price: 80, duration: '2h', available: false },
+        { id: 2, name: 'Production musicale complète', price: 300, duration: 'variable', available: false },
+        { id: 3, name: 'Mixage et mastering', price: 150, duration: '3-5 jours', available: false }
       ]
     }));
   } else {

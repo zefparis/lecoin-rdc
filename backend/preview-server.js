@@ -32,6 +32,15 @@ const server = http.createServer((req, res) => {
           body {
             font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
             line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+          header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-left: 4px solid var(--accent-blue);
             color: white;
             padding: 30px;
             border-radius: var(--border-radius);
@@ -39,6 +48,7 @@ const server = http.createServer((req, res) => {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            text-align: center;
           }
           header::after {
             content: '';
@@ -81,11 +91,29 @@ const server = http.createServer((req, res) => {
             max-width: 800px;
             margin: 20px auto;
           }
-          .services {
+          section h2 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+          }
+          section p {
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+          }
+          .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
           }
           .service-card {
             background-color: var(--bg-card);
@@ -112,7 +140,7 @@ const server = http.createServer((req, res) => {
           .immo-img { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .pharma-img { background-image: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
           .wewa-img { background-image: url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
-          .pasteur-img { background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); }
+          .pasteur-img { background-image: url('https://images.unsplash.com/photo-1503147070464-8f5bcd34f996?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'); /* Image de religieuse chrétienne */ }
           .service-header {
             font-weight: bold;
             font-size: 1.4rem;
@@ -187,6 +215,51 @@ const server = http.createServer((req, res) => {
             padding: 20px;
             border-top: 1px solid #333;
           }
+          
+          /* Media queries pour la responsivité */
+          @media (max-width: 768px) {
+            body {
+              padding: 15px;
+            }
+            
+            h1 {
+              font-size: 2.2rem;
+            }
+            
+            .hero {
+              padding: 40px 20px;
+            }
+            
+            .hero h2 {
+              font-size: 1.8rem;
+            }
+            
+            .hero p {
+              font-size: 1rem;
+            }
+            
+            .service-card {
+              padding: 20px;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            h1 {
+              font-size: 1.8rem;
+            }
+            
+            header {
+              padding: 20px;
+            }
+            
+            .hero h2 {
+              font-size: 1.5rem;
+            }
+            
+            .service-image {
+              height: 120px;
+            }
+          }
         </style>
       </head>
       <body>
@@ -213,7 +286,7 @@ const server = http.createServer((req, res) => {
               des réalités locales et des défis spécifiques au contexte congolais.
             </p>
             
-            <div class="services">
+            <div class="services-grid">
               <div class="service-card">
                 <div class="service-image immo-img"></div>
                 <div class="service-header immo">Immo-Express</div>
